@@ -8,15 +8,11 @@ class UserController {
     static listAll = async (req: Request, res: Response) => {
         const userRepository = getRepository(User);
         const users = await userRepository.find({
-            select: [
-                "id",
-                "username",
-                "role"
-            ]
+            select: [ "name", "sername", "phone", "role" ]
         });
 
         res.send(users);
-    }
+    };
 
     // TODO remove res.send(user)
     static getOneById = async (req: Request, res: Response) => {
@@ -27,21 +23,24 @@ class UserController {
 
         try {
             user = await userRepository.findOneOrFail(id, {
-                select: ["id", "username", "role"] //We dont want to send the password on response
+                select: ["name", "sername", "role"] //We dont want to send the password on response
             });
         } catch (err) {
             res.status(404).send("User not found.");
         }
 
         res.send(user)
-    }
+    };
 
     static newUser = async (req: Request, res: Response) => {
 
         // Get parameters from body
-        let {username, password, role} = req.body;
+        let {login, name, sername, phone, password, role} = req.body;
         let user = new User();
-        user.username = username;
+        user.login = login;
+        user.name = name;
+        user.sername = sername;
+        user.phone = phone;
         user.password = password;
         user.role = role;
 
@@ -62,7 +61,7 @@ class UserController {
         try {
             await userRepository.save(user);
         } catch (err) {
-            res.status(409).send("username already in use");
+            res.status(409).send("Phone already in use");
             return;
         }
 
@@ -76,7 +75,7 @@ class UserController {
         const id = req.params.id;
 
         // Get values from the body
-        const {username, role} = req.body;
+        const {login, name, sername, phone, role} = req.body;
 
         // Try to find user on DB
         const userRepository = getRepository(User);
@@ -90,7 +89,10 @@ class UserController {
         }
 
         // Valid a new values of model
-        user.username = username;
+        user.login = login;
+        user.name = name;
+        user.sername = sername;
+        user.phone = phone;
         user.role = role;
         const errors = await validate(user);
         if(errors.length > 0) {

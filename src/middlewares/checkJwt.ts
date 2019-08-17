@@ -19,8 +19,8 @@ export const checkJwt = (req: Request, res: Response, next: NextFunction) => {
 
     // THE TOKEN IS VALID FOR 1 HOUR
     // SEND TOKEN ON EVERY REQUEST
-    const {userId, userName} = jwtPayload;
-    const newToken = jwt.sign({userId, userName}, config.jwtSecret, {
+    const {userId, name} = jwtPayload;
+    const newToken = jwt.sign({userId, name}, config.jwtSecret, {
         expiresIn: "1h"
     });
     res.setHeader("token", newToken);
