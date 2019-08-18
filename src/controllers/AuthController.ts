@@ -88,7 +88,7 @@ class AuthController {
         // Hash the new password and save
         user.hashPassword();
         await userRepository.save(user);
-        res.status(204).send("Password Changed!");
+        res.status(204).send("Пароль изменен!");
     }
 }
 

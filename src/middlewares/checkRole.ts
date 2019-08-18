@@ -21,7 +21,7 @@ export const checkRole = (roles: Array<string>) => {
         if(roles.indexOf(user.role) > -1) {
             next();
         } else {
-            res.status(401).send('User not have access!');
+            res.status(401).send('Пользователь не имеет доступа!');
         }
     };
 };
