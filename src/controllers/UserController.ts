@@ -71,10 +71,9 @@ class UserController {
     static editUser = async (req: Request, res: Response) => {
 
         // Get the ID from the URL
-        const id = req.params.id;
+        const id: number = req.params.id;
         // Get values from the body
         const {login, name, sername, phone, role} = req.body;
-        console.log(login, name, sername, phone, role);
         // Try to find user on DB
         const userRepository = getRepository(User);
         let user: User;
@@ -92,9 +91,10 @@ class UserController {
         user.sername = sername;
         user.phone = phone;
         user.role = role;
+
         const errors = await validate(user);
-        console.log(errors);
-        if(errors.length > 0) {
+
+        if (errors.length > 0) {
             res.status(400).send(errors);
             return;
         }

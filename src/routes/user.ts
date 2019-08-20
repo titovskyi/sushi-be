@@ -34,6 +34,6 @@ router.delete(
     "/:id([0-9]+)",
     [checkJwt, checkRole(["ADMIN"])],
     UserController.deleteUser
-)
+);
 
 export default router;
