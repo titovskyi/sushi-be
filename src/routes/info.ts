@@ -15,4 +15,5 @@ router.patch(
     InfoController.editInfo
 );
 
+
 export default router;

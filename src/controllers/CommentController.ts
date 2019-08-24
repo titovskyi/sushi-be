@@ -7,7 +7,7 @@ class CommentController {
     static listAll = async (req: Request, res: Response) => {
         const commentRepository = getRepository(Comment);
         const comments = await commentRepository.find({
-            select: ["id", "name", "comment", "createdAt"]
+            select: ["id", "name", "header", "comment", "createdAt"]
         });
 
         res.send(comments);
@@ -15,9 +15,10 @@ class CommentController {
 
     static newComment = async (req: Request, res: Response) => {
         // Get parameters from body
-        let {name, comment} = req.body;
+        let {name, comment, header} = req.body;
         console.log(name, comment);
         let newComment = new Comment();
+        newComment.header = header;
         newComment.name = name;
         newComment.comment = comment;
         // Validate if parameters are ok

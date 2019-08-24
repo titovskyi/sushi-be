@@ -5,6 +5,8 @@ import * as bodyParser from "body-parser";
 import * as helmet from "helmet";
 import * as cors from "cors";
 import routes from "./routes/index";
+import * as path from "path";
+import * as multer from "multer";
 
 createConnection()
     .then(async connection => {
@@ -15,6 +17,9 @@ createConnection()
         app.use(cors());
         app.use(helmet());
         app.use(bodyParser.json());
+
+        // Set folder for public calls
+        app.use(express.static('./public'));
 
         //Set all routes from routes folder
         app.use("/api", routes);

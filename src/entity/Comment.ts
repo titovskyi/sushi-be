@@ -20,6 +20,10 @@ export class Comment {
 
     @Column()
     @IsNotEmpty()
+    header: string;
+
+    @Column()
+    @IsNotEmpty()
     comment: string;
 
     @Column()
