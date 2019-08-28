@@ -126,7 +126,7 @@ class UserController {
         await userRepository.delete(id);
 
         res.status(204).send();
-    }
+    };
 }
 
 export default UserController;

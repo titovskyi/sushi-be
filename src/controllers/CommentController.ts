@@ -16,8 +16,8 @@ class CommentController {
     static newComment = async (req: Request, res: Response) => {
         // Get parameters from body
         let {name, comment, header} = req.body;
-        console.log(name, comment);
         let newComment = new Comment();
+
         newComment.header = header;
         newComment.name = name;
         newComment.comment = comment;
