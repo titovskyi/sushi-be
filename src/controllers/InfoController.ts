@@ -73,8 +73,6 @@ class InfoController {
         }
 
         if (logo && logo !== prev_logo_name) {
-            console.log(prev_logo_name);
-            console.log(PATH.dirname(__filename));
             fs.unlinkSync(PATH.resolve(`public\\uploads\\${prev_logo_name}`));
         }
 

@@ -46,7 +46,7 @@ class CommentController {
         const id = req.params.id;
         const commentRepository = getRepository(Comment);
         let comment: Comment;
-        console.log(id);
+
         try {
             comment = await commentRepository.findOneOrFail(id);
         } catch (err) {

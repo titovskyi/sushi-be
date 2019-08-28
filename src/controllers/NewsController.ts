@@ -2,6 +2,8 @@ import {Request, Response} from "express";
 import {getRepository} from "typeorm";
 import {News} from "../entity/News";
 import {validate} from "class-validator";
+import * as fs from "fs";
+import * as PATH from "path";
 
 class NewsController {
     static listAll = async (req: Request, res: Response) => {
@@ -57,7 +59,7 @@ class NewsController {
 
     static editNews = async (req: Request, res: Response) => {
         const id = req.params.id;
-        const {header, description, image} = req.body;
+        const {header, description, image, prev_image} = req.body;
         const newsRepository = getRepository(News);
         let news: News;
 
@@ -70,7 +72,7 @@ class NewsController {
         news.header = header;
         news.description = description;
         news.image = image;
-
+        console.log(news, 'asdkfsdofnsdonsoadnognsodnofdnfksdmfskodm');
         const errors = await validate(news);
         if(errors.length > 0) {
             res.status(409).send(errors);
@@ -81,6 +83,10 @@ class NewsController {
             await newsRepository.save(news);
         } catch(err) {
             res.status(409).send("Новость с таким заголовком уже существует!");
+        }
+
+        if (image && image !== prev_image) {
+            fs.unlinkSync(PATH.resolve(`public\\uploads\\${prev_image}`));
         }
 
         res.send(news);
@@ -98,6 +104,8 @@ class NewsController {
         }
 
         await newsRepository.delete(id);
+
+        fs.unlinkSync(PATH.resolve(`public\\uploads\\${news.image}`));
 
         res.status(204).send();
     };

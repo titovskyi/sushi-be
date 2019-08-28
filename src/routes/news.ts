@@ -26,7 +26,8 @@ router.patch(
 
 router.delete(
     "/:id([0-9]+)",
-    [checkJwt, checkRole(["ADMIN"])]
+    [checkJwt, checkRole(["ADMIN"])],
+    NewsController.deleteNews
 );
 
 export default router;

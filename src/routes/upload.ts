@@ -1,8 +1,6 @@
 import {Router} from "express";
 import {checkJwt} from "../middlewares/checkJwt";
-import {checkRole} from "../middlewares/checkRole";
 import * as multer from "multer";
-import * as path from "path";
 
 const router = Router();
 let imgName: string;
@@ -20,7 +18,6 @@ const upload = multer({
     storage: storage
 }).single('upload');
 
-// Edit Info hardcode in Controller ID=1 || req.params.infoId
 router.post(
     "/",
     [checkJwt],
