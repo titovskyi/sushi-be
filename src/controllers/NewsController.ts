@@ -72,7 +72,7 @@ class NewsController {
         news.header = header;
         news.description = description;
         news.image = image;
-        console.log(news, 'asdkfsdofnsdonsoadnognsodnofdnfksdmfskodm');
+
         const errors = await validate(news);
         if(errors.length > 0) {
             res.status(409).send(errors);

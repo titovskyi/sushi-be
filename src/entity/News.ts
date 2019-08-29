@@ -2,7 +2,7 @@ import {Column, Entity, PrimaryGeneratedColumn, Unique} from "typeorm";
 import {IsNotEmpty} from "class-validator";
 
 @Entity()
-@Unique(['header'])
+@Unique(["header", "image"])
 export class News {
     @PrimaryGeneratedColumn()
     id: number;

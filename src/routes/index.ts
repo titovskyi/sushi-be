@@ -5,6 +5,7 @@ import comment from "./comment";
 import info from "./info";
 import upload from "./upload";
 import news from "./news";
+import product from "./product";
 
 const routes = Router();
 
@@ -14,5 +15,6 @@ routes.use("/comment", comment);
 routes.use("/info", info);
 routes.use("/upload", upload);
 routes.use("/news", news);
+routes.use("/product", product);
 
 export default routes;
