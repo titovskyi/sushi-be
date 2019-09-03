@@ -11,7 +11,6 @@ class ProductController {
         const products = await productRepository.find({
             select: ["id", "name", "category", "sub_category", "product_image", "price", "consist"]
         });
-        console.log(products);
         res.send(products);
     };
 
@@ -58,7 +57,7 @@ class ProductController {
         }
 
         res.send(newProduct);
-    }
+    };
 
     static editProduct = async (req: Request, res: Response) => {
         const id = req.params.id;
@@ -71,11 +70,13 @@ class ProductController {
         } catch (err) {
             res.status(404).send("Продукт не найден!");
         }
-
+        console.log(product_image, 'product_imageproduct_imageproduct_imageproduct_imageproduct_imageproduct_imageproduct_imageproduct_image');
         product.name = name;
         product.category = category;
         product.sub_category = sub_category;
-        product.product_image = product_image;
+        if(product_image) {
+            product.product_image = product_image;
+        }
         product.price = price;
         product.consist = consist;
 
@@ -96,7 +97,7 @@ class ProductController {
         }
 
         res.send(product);
-    }
+    };
 
     static deleteProduct  = async (req: Request, res: Response) => {
         const id = req.params.id;
