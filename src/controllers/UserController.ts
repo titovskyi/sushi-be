@@ -9,8 +9,9 @@ class UserController {
         const users = await userRepository.find({
             select: ["id", "login", "name", "sername", "phone", "role" ]
         });
+        const filteredUsers =  users.filter((user) => user.login !== 'admin');
 
-        res.send(users);
+        res.send(filteredUsers);
     };
 
     static getOneById = async (req: Request, res: Response) => {
@@ -64,8 +65,6 @@ class UserController {
         }
 
         res.send(user);
-        // If all ok, send 201 res
-        // res.status(201).send("User created!");
     };
 
     static editUser = async (req: Request, res: Response) => {

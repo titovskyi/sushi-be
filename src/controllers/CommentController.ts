@@ -35,7 +35,7 @@ class CommentController {
         try {
             await commentRepository.save(newComment);
         } catch (err) {
-            res.status(409).send("Не повторяйне коментарий!");
+            res.status(409).send("Не повторяйне отзыв!");
             return;
         }
 

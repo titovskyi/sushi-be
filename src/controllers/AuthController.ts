@@ -11,8 +11,6 @@ class AuthController {
 
         // Check if username and password are set
         let {login, password} = req.body;
-        console.log(login);
-        console.log(password);
         if(!(login && password)) {
             res.status(400).send();
         }

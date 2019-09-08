@@ -2,13 +2,10 @@ import {Response, Request} from "express";
 import {getRepository} from "typeorm";
 import {validate} from "class-validator";
 import {Info} from "../entity/Info";
-import * as multer from "multer";
-import * as path from "path";
 import * as fs from "fs";
 import * as PATH from "path";
 
 class InfoController {
-
 
     static getOneById = async (req: Request, res: Response) => {
 
@@ -28,9 +25,7 @@ class InfoController {
                     "phone"
                 ]
             });
-            // console.log(info);
         } catch (err) {
-            // console.log(err);
             res.status(404).send("Ошибка в получении информации!");
         }
 

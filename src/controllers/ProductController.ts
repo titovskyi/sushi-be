@@ -70,7 +70,7 @@ class ProductController {
         } catch (err) {
             res.status(404).send("Продукт не найден!");
         }
-        console.log(product_image, 'product_imageproduct_imageproduct_imageproduct_imageproduct_imageproduct_imageproduct_imageproduct_image');
+
         product.name = name;
         product.category = category;
         product.sub_category = sub_category;

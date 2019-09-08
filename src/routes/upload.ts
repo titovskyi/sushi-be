@@ -24,10 +24,8 @@ router.post(
     (req, res) => {
         upload(req, res, (err) => {
             if(err) {
-                console.log(err);
                 res.send(err);
             } else {
-                console.log(imgName, 'path to image');
                 res.send({filePath: imgName});
             }
         });
