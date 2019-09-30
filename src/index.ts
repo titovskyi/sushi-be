@@ -24,6 +24,11 @@ createConnection()
         //Set all routes from routes folder
         app.use("/api", routes);
 
+        app.all('/*', function(req, res, next) {
+            const indexPath = path.join(__dirname, '../');
+            res.sendFile('index.html', { root: indexPath + '/public/' });
+        });
+
         app.listen(3000, () => {
             console.log("Server started on port 3000!");
         });

@@ -6,6 +6,7 @@ import info from "./info";
 import upload from "./upload";
 import news from "./news";
 import product from "./product";
+import poster from "./poster";
 
 const routes = Router();
 
@@ -16,5 +17,6 @@ routes.use("/info", info);
 routes.use("/upload", upload);
 routes.use("/news", news);
 routes.use("/product", product);
+routes.use("/poster", poster);
 
 export default routes;
