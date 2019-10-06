@@ -8,4 +8,6 @@ router.get('/categories', PosterController.getCategories);
 
 router.get('/products', PosterController.getProducts);
 
+router.post('/order', PosterController.sendOrder);
+
 export default router;

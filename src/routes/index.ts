@@ -19,4 +19,5 @@ routes.use("/news", news);
 routes.use("/product", product);
 routes.use("/poster", poster);
 
+
 export default routes;
