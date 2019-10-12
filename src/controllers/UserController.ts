@@ -16,7 +16,7 @@ class UserController {
 
     static getOneById = async (req: Request, res: Response) => {
         //Get the ID from the url
-        const id: number = req.params.userid;
+        const id: any = req.params.userid;
         const userRepository = getRepository(User);
         let user: User;
 
@@ -70,7 +70,7 @@ class UserController {
     static editUser = async (req: Request, res: Response) => {
 
         // Get the ID from the URL
-        const id: number = req.params.id;
+        const id: any = req.params.id;
         // Get values from the body
         const {login, name, sername, phone, role} = req.body;
         // Try to find user on DB
