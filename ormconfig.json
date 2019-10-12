@@ -1,14 +1,15 @@
 {
    "type": "postgres",
-   "host": "localhost",
+   "host": "67.205.147.142",
    "port": 5432,
-   "username": "postgres",
-   "password": "0123456789",
-   "database": "sushi_store",
+   "username": "alex_sushi",
+   "password": "adc73f04",
+   "database": "alex_sushi_2",
    "synchronize": true,
    "logging": false,
    "entities": [
-      "src/entity/**/*.ts"
+      "src/entity/**/*.ts",
+      "build/entity/**/*.js"
    ],
    "migrations": [
       "src/migration/**/*.ts"
