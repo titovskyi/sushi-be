@@ -9,7 +9,7 @@ class InfoController {
 
     static getOneById = async (req: Request, res: Response) => {
 
-        const id: number = req.params.infoId || 1;
+        const id: any = req.params.infoId || 1;
         const infoRepository = getRepository(Info);
         let info: Info;
 
@@ -33,7 +33,7 @@ class InfoController {
     };
 
     static editInfo = async (req: Request, res: Response) => {
-        const id: number = req.params.id || 1;
+        const id: any = req.params.id || 1;
         const {city, delivery_info, delivery_time, logo, map, phone, prev_logo_name } = req.body;
         const infoRepository = getRepository(Info);
         let info: Info;
