@@ -32,9 +32,8 @@
       "typeorm": "0.2.18"
    },
    "scripts": {
-      "tsc": "tsc",
-      "start": "set debug=* && ts-node-dev --respawn --transpileOnly ./src/index.ts && ts-node ./node_modules/typeorm/cli.js migration:run && tsc && ts-node ./build/index.js",
-      "prod": "tsc && ts-node ./build/index.js",
-      "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run"
+      "start": "ts-node build/index.js",
+      "build": "tsc",
+      "postinstall": "npm run build && ts-node ./node_modules/typeorm/cli.js migration:run"
    }
 }
