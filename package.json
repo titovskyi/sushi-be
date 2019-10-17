@@ -7,9 +7,6 @@
       "@types/node": "^8.0.29",
       "typescript": "3.3.3333"
    },
-   "engines": {
-      "ts-node": "3.3.0"
-   },
    "dependencies": {
       "@types/bcryptjs": "^2.4.2",
       "@types/body-parser": "^1.17.0",
@@ -32,6 +29,9 @@
       "typeorm": "0.2.18"
    },
    "scripts": {
-      "start": "tsc && ts-node build/index.js && ts-node ./node_modules/typeorm/cli.js migration:run"
+      "tsc": "tsc",
+      "start": "set debug=* && ts-node-dev --respawn --transpileOnly ./src/index.ts",
+      "prod": "tsc && ts-node ./build/index.js",
+      "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run"
    }
 }
