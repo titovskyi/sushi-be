@@ -1,10 +1,10 @@
 {
    "type": "postgres",
-   "host": "127.0.0.1",
+   "host": "ec2-54-243-49-82.compute-1.amazonaws.com",
    "port": 5432,
-   "username": "alex_sushi",
-   "password": "adc73f04",
-   "database": "alex_sushi",
+   "username": "wveatrkluszfqr",
+   "password": "6936e02fd7d9664e407fe6738e7261bb237c9534a42de9c5cfa9e5b8d83912d5",
+   "database": "d6trj13sbcg0qh",
    "synchronize": true,
    "logging": false,
    "entities": [
