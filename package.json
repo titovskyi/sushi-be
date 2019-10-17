@@ -34,7 +34,7 @@
    "scripts": {
       "tsc": "tsc",
       "start": "tsc && ts-node ./build/index.js && ts-node ./node_modules/typeorm/cli.js migration:run",
-      "prod": "tsc && ts-node ./build/index.js",
+      "postinstall": "ts-node ./node_modules/typeorm/cli.js migration:run",
       "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run"
    }
 }
