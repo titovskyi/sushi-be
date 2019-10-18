@@ -2,7 +2,7 @@
    "type": "postgres",
    "host": "67.205.147.142",
    "port": 5432,
-   "username": "postgres",
+   "username": "alex_sushi",
    "password": "adc73f04",
    "database": "alex_sushi",
    "synchronize": true,
